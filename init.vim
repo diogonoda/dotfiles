@@ -106,6 +106,21 @@ set list
 
 
 " \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+"      Seeing-is-Believing
+" /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+augroup seeingIsBelievingSettings
+  autocmd!
+
+  autocmd FileType ruby nmap <buffer> <Enter> :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<cr>
+
+  autocmd FileType ruby nmap <buffer> <F4> :%!seeing_is_believing --clean<cr>
+
+  autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
+  autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
+augroup END
+
+
+" \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 "         Key Remappings
 " /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 "   Enable some commands to run in insert mode
