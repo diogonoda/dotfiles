@@ -1,20 +1,25 @@
 " Plugins
 call plug#begin("~/.vim/plugged")
-  " Colorscheme
-  Plug 'dracula/vim'
   " Colorizer
   Plug 'norcalli/nvim-colorizer.lua'
+  " Colorscheme
+  Plug 'dracula/vim'
+
+  " ConquerOfCompletion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Commenter
+  Plug 'preservim/nerdcommenter'
 
   " File Explorer
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
 
-  " ConquerOfCompletion
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
   " Fzf
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+
+  "Html snippets"
+  Plug 'mattn/emmet-vim'
 call plug#end()
 
 
@@ -36,6 +41,12 @@ lua require 'colorizer'.setup()
 
 
 " \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+"         NerdCommenter
+" /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+let g:NERDSpaceDelims = 1
+
+
+" \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 "            NERDTree
 " /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 let g:NERDTreeMinimalUI = 1
@@ -43,6 +54,7 @@ let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 "   Key Remappings
 noremap <leader>n :NERDTreeFocus<cr>
+noremap <leader>nf :NERDTreeFind<cr>
 
 
 " \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
@@ -112,8 +124,13 @@ augroup seeingIsBelievingSettings
   autocmd!
 
   autocmd FileType ruby nmap <buffer> <Enter> :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<cr>
+"  autocmd FileType ruby nmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
+"  autocmd FileType ruby xmap <buffer> <Enter> <Plug>(seeing-is-believing-mark-and-run)
 
   autocmd FileType ruby nmap <buffer> <F4> :%!seeing_is_believing --clean<cr>
+"  autocmd FileType ruby nmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+"  autocmd FileType ruby xmap <buffer> <F4> <Plug>(seeing-is-believing-mark)
+"  autocmd FileType ruby imap <buffer> <F4> <Plug>(seeing-is-believing-mark)
 
   autocmd FileType ruby nmap <buffer> <F5> <Plug>(seeing-is-believing-run)
   autocmd FileType ruby imap <buffer> <F5> <Plug>(seeing-is-believing-run)
