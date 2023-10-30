@@ -62,6 +62,9 @@ noremap <leader>nf :NERDTreeFind<cr>
 " /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 let g:coc_global_extensions = ['coc-solargraph', 'coc-vetur']
 
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 
 " \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 "              Fzf
@@ -113,8 +116,8 @@ set incsearch
 
 " Editor
 "   Show a '·' on whitespaces
-set listchars=space:·
-set list
+" set listchars=space:·
+" set list
 
 
 " \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
@@ -146,6 +149,7 @@ imap kj <esc><esc>
 "     Leave insert mode and save
 imap kjw <esc><esc>:w<cr>
 imap kjx <esc><esc>:x<cr>
+imap kja <esc><esc>A
 "     Auto-close sections
 inoremap " ""<left>
 inoremap ' ''<left>
@@ -172,7 +176,15 @@ noremap <down> <esc>
 noremap <right> <esc>
 noremap <left> <esc>
 
+"   Tabs
+"   Moving between tabs
+noremap <leader>h gT
+noremap <leader>l gt
+
 "   Apperance
 "     Increase/Decrease panel vertical size
 noremap <leader>d <esc>:vertical resize -10<cr>
 noremap <leader>i <esc>:vertical resize +10<cr>
+
+
+noremap <leader>b orequire 'pry-byebug'; binding.pry<esc>

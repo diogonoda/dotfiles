@@ -1,0 +1,68 @@
+{
+    "workbench.colorTheme": "One Monokai",
+    "workbench.startupEditor": "none",
+
+    // #####################################
+    // ########      Vim Mode      #########
+    // #####################################
+    "vim.leader": "\\",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Tab Next
+        {
+            "before": ["<leader>", "l"],
+            "after": ["g", "t"]
+        },
+        // Tab Previous
+        {
+            "before": ["<leader>", "h"],
+            "after": ["g", "T"]
+        },
+        // Save file
+        {
+            "before": ["<leader>", "w"],
+            "after": [":", "w", "<Enter>"]
+        },
+        // Close editor
+        {
+            "before": ["<leader>", "q"],
+            "after": [":", "q", "<Enter>"]
+        }
+        // Add pry
+        // Indent line/block
+    ],
+    "vim.insertModeKeyBindings": [
+        // Exit insertMode
+        {
+            "before": ["k", "j"],
+            "after": ["<Esc>"]
+        },
+        // Exit insertMode and save
+        {
+            "before": ["k", "j", "w"],
+            "after": ["<Esc>", ":", "w", "<Enter>"]
+        },
+    ]
+//   "vim.easymotion": true,
+//   "vim.incsearch": true,
+//   "vim.useSystemClipboard": true,
+//   "vim.useCtrlKeys": true,
+//   "vim.hlsearch": true,
+//       "before": ["<leader>", "d"],
+//       "after": ["d", "d"]
+//     {
+//     },
+//     {
+//       "before": ["K"],
+//       "commands": ["lineBreakInsert"],
+//       "silent": true
+//     }
+//   "vim.handleKeys": {
+//     "<C-a>": false,
+//     "<C-f>": false
+//   },
+
+//   "// To improve performance",
+//   "extensions.experimental.affinity": {
+//     "vscodevim.vim": 1
+//   }
+}
